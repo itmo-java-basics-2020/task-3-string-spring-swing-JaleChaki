@@ -30,7 +30,7 @@ public class Task3 {
      * Пример: 2 4 6 -> 24
      */
     int getMaxProduct(int[] inputArray) {
-        if (inputArray == null) {
+        if (inputArray == null || inputArray.length == 0) {
             return 0;
         }
         if (inputArray.length == 1) {
@@ -107,6 +107,8 @@ public class Task3 {
             } else {
                 result.append(currentSymbol);
                 result.append(charCount);
+                charCount = 1;
+                currentSymbol = input.charAt(i);
             }
         }
         result.append(currentSymbol);
@@ -137,12 +139,12 @@ public class Task3 {
      * isPermutation("abc", "Abc") == false;
      */
     boolean isPermutation(String one, String two) {
-        if (one == null || two == null) {
+        if (one == null || two == null || two == "" || one == "") {
             return false;
         }
         String a = sortedStr(one);
         String b = sortedStr(two);
-        return a.equals(two);
+        return a.equals(b);
     }
 
     /**
@@ -151,6 +153,9 @@ public class Task3 {
      * Строкой является последовательность символов длинной N, где N > 0
      */
     boolean isUniqueString(String s) {
+        if (s == null || s == "") {
+            return false;
+        }
         String sorted = sortedStr(s);
         for (int i = 1; i < s.length(); ++i) {
             if (sorted.charAt(i - 1) == sorted.charAt(i)) {
