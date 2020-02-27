@@ -40,7 +40,7 @@ public class Task3 {
         int maxind2 = 1;
         for (int i = 0; i < inputArray.length; ++i) {
             if (inputArray[maxind1] < inputArray[i]) {
-                i = maxind1;
+                maxind1 = i;
             }
         }
         if (maxind1 == maxind2) {
@@ -48,7 +48,7 @@ public class Task3 {
         }
         for (int i = 0; i < inputArray.length; ++i) {
             if (inputArray[maxind2] < inputArray[i] && i != maxind1) {
-                i = maxind2;
+               maxind2 = i;
             }
         }
         return inputArray[maxind1] * inputArray[maxind2];
