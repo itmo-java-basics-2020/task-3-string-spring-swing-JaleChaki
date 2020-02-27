@@ -10,7 +10,7 @@ public class Task3 {
      * Если инпут равен null - вернуть пустой массив
      */
     int[] getShiftedArray(int[] inputArray) {
-        if (inputArray == null) {
+        if (inputArray == null || inputArray.length == 0) {
             return new int[0];
         }
         int[] result = new int[inputArray.length];
@@ -80,7 +80,7 @@ public class Task3 {
      */
     boolean isPalindrome(String input) {
         if (input == null) {
-            throw new IllegalArgumentException("input");
+            return false;
         }
         for (int i = 0; i < input.length() / 2; ++i) {
             if (input.charAt(i) != input.charAt(input.length() - 1 - i)) {
